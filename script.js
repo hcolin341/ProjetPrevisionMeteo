@@ -1,6 +1,7 @@
 function recuperation_donnees   ()
 {
     const VILLE = document.getElementById("ville").value;
+    const NOMBRE = document.getElementById("NombreJours").value;
     const APIGEOLOCATE_KEY = "4cc84d243e404697a08e5534056dbde4"
     const APIWEATHER_KEY = "d5feee14cc21f117d2a02f17f9c1e44e"
     let URLG = `https://api.opencagedata.com/geocode/v1/json?q=${VILLE}&key=${APIGEOLOCATE_KEY}&language=fr&pretty=1`
@@ -32,7 +33,7 @@ function recuperation_donnees   ()
     .then(donnee => {
     resultats.innerHTML = "";
     var code_meteo;
-      for (var i = 0; i < 5; i++)
+      for (var i = 0; i < NOMBRE; i++)
     {
         code_meteo = donnee.daily[i].weather[0].id;      
         if(code_meteo == 800)

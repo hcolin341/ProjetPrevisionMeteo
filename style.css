@@ -27,7 +27,6 @@ button
 {
     font-size : 35px;
     font-family : 'Arial';
-    margin-left : 2%;
 }
 
 .soumission
@@ -67,9 +66,8 @@ button
     font-size : 30px;
     font-weight : bold;
     font-family :'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    width : 200px;
-}  
-
+    width : 180px;
+}
 
 .recherche {
     font-size : 30px;
@@ -84,4 +82,10 @@ button
     flex-wrap : wrap;
     flex-direction : row;
     margin-top : 70px;
+}
+
+#NombreJours {
+    margin-left : 30px;
+    margin-right : 30px;
+    font-size : 15px; 
 }
