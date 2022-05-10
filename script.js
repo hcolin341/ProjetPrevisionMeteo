@@ -22,7 +22,7 @@ function recuperation_donnees   ()
     const LAT = data.results[0].geometry.lat; 
     const LON = data.results[0].geometry.lng;
     let URLW = `https://api.openweathermap.org/data/2.5/onecall?lat=${LAT}&lon=${LON}&exclude={current,minutely,hourly,alerts}&appid=${APIWEATHER_KEY}`
-
+    console.log(URLW);
     fetch(URLW)
     .then(reponse => { 
     if (reponse.status == 200) { 
@@ -70,6 +70,21 @@ function recuperation_donnees   ()
         {  indexjour = 0; }
         else 
             indexjour++;
+
+        const illumi = donnee.current.uvi;
+        const DOCU = document.getElementById("tout");
+        const CORPS = document.getElementById("corps");
+        if (illumi == 0)
+        {
+            CORPS.style["background-color"] = "";
+            CORPS.style["background"] = "linear-gradient(0deg, #003AFF, #010F40)";
+            console.log("test");    
+        }
+        else 
+        {
+            CORPS.style["background"] = "";
+            CORPS.style["background-color"] = "rgba(25, 140, 255, 0.725)"
+        }
     }
     })
     })

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html id = "tout">
 <head>
 
 <link rel ="stylesheet" href="style.css">
@@ -8,11 +8,9 @@
 
 </head>
 
-<body>
+<body id = "corps">
 
-<div class = "fronton"> Weather App </div>
-
-//<div class = "espace"></div>
+<div class = "header"> Weather App </div>
 
 <div class = "soumission"> 
     <input type = "text" id = "ville" class = "recherche"/> 
@@ -23,7 +21,6 @@
         <option value = "7"> 7 jours</option>
     </select>
     <button class = "envoi" onclick = "recuperation_donnees()"> Submit </button>
-    
 </div>
 
 <div id = resultats>
@@ -31,7 +28,5 @@
 </div>
 
 <script src="./script.js"></script>
-
 </body>
-
 </html>
