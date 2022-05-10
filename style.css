@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-
-<style>
-
 .fronton
 { 
     font-size : 75px;
@@ -15,6 +9,7 @@
 body 
 {
     background-color : rgba(65, 195, 255, 0.65);
+    justify-content: center;
 }
 
 button 
@@ -56,47 +51,37 @@ button
     font-size : 50px;
 }
 
-.Logo
+.jour
 {
     width : 150px;
     height : 150px;
-    margin-left : 45%;
 }
 
-.logot {
-    align-items: center;
-    margin-left : 40%;
-}
-
-.test {
+.resultat{
+    margin-left : 2%;
+    margin-right : 2%;
+    display : flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    text-align : center;
     font-size : 30px;
-    margin-left : 5px;
+    font-weight : bold;
+    font-family :'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width : 200px;
+}  
+
+
+.recherche {
+    font-size : 30px;
+    margin-left : 10px;
+    color : black;
 }
 
-</style>
-
-<Title> Weather Forecast </Title>
-
-</head>
-
-<body>
-
-<div class = "fronton"> Weather App </div>
-
-//<div class = "espace"></div>
-
-<div class = "soumission"> 
-    <input type = "text" id = "ville" class = "test"/> 
-    <button class = "envoi" onclick = "recuperation()"> Submit </button>
-</div>
-
-<div class = "resultats">
-    <div class = "Temperature"> Il fait : <a id = "temperature"></a></div>
-    <div class = "Logo" id = "logo"><img src = "" id = "logot"></div>
-</div>
-
-<script src="./script.js"></script>
-
-</body>
-
-</html>
+#resultats {
+    align-items: center;
+    justify-content: center;
+    display : flex;
+    flex-wrap : wrap;
+    flex-direction : row;
+    margin-top : 70px;
+}
