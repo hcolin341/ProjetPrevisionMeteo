@@ -5,6 +5,7 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-align: center;
     font-weight : Bold;
+    color : white;
 }
 
 body 
@@ -24,6 +25,14 @@ button
     font-weight : thin; 
     border-color :rgb(25, 136, 170)
 }
+
+@media (max-width : 750px)
+{.envoi {
+    font-size : 50px;
+    margin-top : 20px;
+    margin-left : 10px;
+    margin-right : 10px;
+}}
 
 .envoi 
 {

@@ -12,7 +12,7 @@
 
 <div class = "header"> Weather App </div>
 
-<div class = "soumission"> 
+<form class = "soumission"> 
     <input type = "text" id = "ville" class = "recherche"/> 
     <select id ="NombreJours"> 
         <option value = "1"> 1 jour</option>
@@ -20,8 +20,8 @@
         <option value = "5"> 5 jours</option>
         <option value = "7"> 7 jours</option>
     </select>
-    <button class = "envoi" onclick = "recuperation_donnees()"> Submit </button>
-</div>
+    <button class = "envoi" id = "soumettre"> Submit </button>
+</form>
 
 <div id = resultats>
 
