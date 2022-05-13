@@ -1,20 +1,22 @@
 document.addEventListener("DOMContentLoaded", function() {
 
+monstockage = localStorage;
+
 const bouttonFonction = document.getElementById("soumettre");
 
 bouttonFonction.addEventListener("click", (event) => {
     event.preventDefault();
-    recuperation_donnees();
+    recuperation_donnees(monstockage);
 })})
 
-function recuperation_donnees()
+function recuperation_donnees(monstockage)
 {
     const ville = document.getElementById("ville").value;
     const nombre = document.getElementById("NombreJours").value;
     const apigeolocate_key = "4cc84d243e404697a08e5534056dbde4"
     const apiweather_key = "d5feee14cc21f117d2a02f17f9c1e44e"
 
-    monstockage = localStorage; // init du stockage local (non necessaire)
+     // init du stockage local (non necessaire)
 
     var lavilledonnee = monstockage.getItem(ville);
 
@@ -31,6 +33,7 @@ function recuperation_donnees()
         .then(donnees => displayWeather(donnees, nombre))
         console.log("elle y etait pas")
     }
+    console.log(lavilledonnee)
 }
 
 function getGeolocateFromApi(ville, apigeolocate_key)
@@ -71,30 +74,15 @@ function getWeatherFromApi(lat, lon, nombre, ville, monstockage, apiweather_key)
     .then(donnee => {
     
     var meteos = []; 
-      for (var i = 0; i < 7; i++)
+      for (var i = 0; i < 8; i++)
     {
         meteos[i] = donnee.daily[i].weather[0].id;  // recuperation du code meteo dans le retour du fetch
     }
+    meteos[7] = donnee.current.uvi;
 
     monstockage.setItem(ville, JSON.stringify(meteos)) // Ajoute le tableau Meteos dans la base de donnees locales 
 
-    const illumi = donnee.current.uvi;
-
-    const corps = document.getElementById("corps");
-    const result = document.getElementById("resultats");
-
-    if (illumi == 0)
-    {
-        corps.style["background-color"] = "";
-        corps.style["background"] = "linear-gradient(0deg, #003AFF, #010F40)";
-        result.style["color"] = "white";
-    }
-    else 
-    {
-        corps.style["background"] = "";
-        corps.style["background-color"] = "rgba(25, 140, 255, 0.725)"
-        result.style["color"] = "black";
-    }
+    //const illumi = donnee.current.uvi;
     
     return meteos;
 })}
@@ -145,5 +133,20 @@ function displayWeather(code_meteo, nombre)
         {  indexjour = 0; }
         else 
             indexjour++;
+    }
+    const corps = document.getElementById("corps");
+    const result = document.getElementById("resultats");
+
+    if (code_meteo[7] == 0)
+    {
+        corps.style["background-color"] = "";
+        corps.style["background"] = "linear-gradient(0deg, #003AFF, #010F40)";
+        result.style["color"] = "white";
+    }
+    else 
+    {
+        corps.style["background"] = "";
+        corps.style["background-color"] = "rgba(25, 140, 255, 0.725)"
+        result.style["color"] = "black";
     }
 }
