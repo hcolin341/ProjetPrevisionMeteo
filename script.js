@@ -90,9 +90,6 @@ function getWeatherFromApi(lat, lon, nombre, ville, monstockage, apiweather_key)
 function displayWeather(code_meteo, nombre)
 {
     resultats.innerHTML = "";
-    
-    //var code_meteo = JSON.parse(lavilledonnee);
-    //console.log(code_meteo)
 
     let ladate = new Date;
     let lasemaine = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi","Vendredi", "Samedi"]
@@ -134,13 +131,12 @@ function displayWeather(code_meteo, nombre)
         else 
             indexjour++;
     }
-    const corps = document.getElementById("corps");
+    const corps = document.body;
     const result = document.getElementById("resultats");
 
     if (code_meteo[7] == 0)
     {
-        corps.style["background-color"] = "";
-        corps.style["background"] = "linear-gradient(0deg, #003AFF, #010F40)";
+        corps.style.background = "linear-gradient(0deg, #003AFF, #010F40)";
         result.style["color"] = "white";
     }
     else 
